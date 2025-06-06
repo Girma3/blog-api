@@ -1,0 +1,93 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id        String    @id @default(cuid())
+    name      String
+    avatar    Image?    @relation("UserAvatar", fields: [avatarId], references: [id])
+    avatarId  String?   @unique
+    blogs     Blog[]
+    comments  Comment[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    role      Role      @default(USER)
+}
+
+model Image {
+    id        String    @id @default(cuid())
+    url       String
+    type      ImageType @default(AVATAR)
+    blog      Blog?     @relation(fields: [blogId], references: [id], onDelete: Cascade)
+    blogId    String?
+    user      User?     @relation("UserAvatar")
+    userId    String?   @unique
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+}
+
+model Blog {
+    id        String     @id @default(cuid())
+    title     String
+    content   String
+    author    User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+    authorId  String
+    images    Image[]
+    comments  Comment[]
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+    status    BlogStatus @default(DRAFT)
+}
+
+model Comment {
+    id          String          @id @default(cuid())
+    content     String
+    author      User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
+    authorId    String
+    blog        Blog            @relation(fields: [blogId], references: [id], onDelete: Cascade)
+    blogId      String
+    parent      Comment?        @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+    parentId    String?
+    replies     Comment[]       @relation("CommentReplies")
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
+    likes       Int             @default(0)
+    // Closure table relations for nested comments
+    ancestors   Closure_Table[] @relation("CommentAncestor")
+    descendants Closure_Table[] @relation("CommentDescendant")
+}
+
+model Closure_Table {
+    id           String  @id @default(cuid())
+    ancestor     Comment @relation("CommentAncestor", fields: [ancestorId], references: [id])
+    ancestorId   String
+    descendant   Comment @relation("CommentDescendant", fields: [descendantId], references: [id])
+    descendantId String
+    depth        Int
+
+    @@unique([ancestorId, descendantId])
+    @@index([ancestorId])
+    @@index([descendantId])
+}
+
+enum Role {
+    USER
+    ADMIN
+    MODERATOR
+}
+
+enum ImageType {
+    AVATAR
+    BLOG
+}
+
+enum BlogStatus {
+    DRAFT
+    PUBLISHED
+    ARCHIVED
+}

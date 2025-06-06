@@ -4,7 +4,7 @@ import {
   generateToken,
   authenticateJwt,
 } from "../authentication/authController.js";
-import { ResultWithContextImpl } from "express-validator/lib/chain/context-runner-impl.js";
+
 const blogRoutes = Router();
 
 blogRoutes.get("/", (req, res, next) => {
