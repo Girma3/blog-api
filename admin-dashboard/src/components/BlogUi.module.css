@@ -1,0 +1,80 @@
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.blogUi {
+  width: 100%;
+  max-width: 350px;
+  height: 130px;
+  padding-inline: 0.2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.placeholderImg,
+.blogImage {
+  width: 80px;
+  height: 80px;
+  background-color: #eee;
+  background-image: linear-gradient(to right, #31e300, #0000c3);
+  border-radius: 10px;
+}
+.blogTitle {
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  padding-block: 0.3rem;
+}
+
+.blogAuthor,
+.blogDate,
+.blogComments {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: grey;
+}
+
+.blogStatus {
+  width: fit-content;
+  padding: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 2px;
+  color: yellow;
+  background-color: black;
+}
+.published {
+  background-color: #00ff00;
+  color: black;
+}
+.archived {
+  background-color: #542e2e;
+  color: white;
+}
+.draft {
+  background-color: #ffff00;
+  color: black;
+}
+.blogActions {
+  width: 100%;
+  justify-content: space-between;
+  padding-block: 0.3rem;
+}
+.blogActions button {
+  width: fit-content;
+  padding: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 2px;
+  color: white;
+  background-color: #004cfe;
+  border: none;
+}

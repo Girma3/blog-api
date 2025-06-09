@@ -1,0 +1,42 @@
+.sideBar {
+  max-width: 250px;
+  width: fit-content;
+  height: 100vh;
+  background-color: #061b49;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+ul {
+  list-style: none;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+a:hover {
+  background-color: #004cfe;
+}
+.profile {
+  position: relative;
+  bottom: 10%;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}

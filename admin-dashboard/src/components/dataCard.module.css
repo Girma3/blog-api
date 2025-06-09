@@ -1,0 +1,24 @@
+.dataCard {
+  width: 100%;
+  max-width: 150px;
+  height: 130px;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.value {
+  font-size: 1rem;
+  color: #666;
+}
