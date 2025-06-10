@@ -1,0 +1,30 @@
+.flexRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100%;
+}
+.adminName {
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+.profileImage,
+.placeholderImg {
+  width: 50px;
+  border: 2px solid pink;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  background-image: linear-gradient(to right, #31e300, #0000c3);
+}
+.update {
+  width: fit-content;
+  border: none;
+  padding: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  border-radius: 2px;
+  color: white;
+  background-image: linear-gradient(to left, rgb(74, 5, 74), rgb(32, 6, 6));
+}
