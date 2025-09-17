@@ -1,0 +1,87 @@
+.header {
+  background-color: rgb(2, 4, 26);
+  padding: 1rem;
+  color: #aba2a2;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.searchHolder {
+  position: relative;
+  width: fit-content;
+}
+.searchBar {
+  width: 90%;
+  border: 1px solid white;
+  background-color: inherit;
+  padding: 0.2rem;
+}
+.searchBtn {
+  border: none;
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  border-radius: 50%;
+  width: 20px;
+  aspect-ratio: 1;
+  background-color: rgb(131, 131, 238);
+}
+.blogTitle {
+  width: 40%;
+  text-align: left;
+}
+.imgHolder {
+  width: 250px;
+  height: 300px;
+  background-color: red;
+  border-bottom-left-radius: 40%;
+  position: relative;
+}
+.circle {
+  position: absolute;
+  aspect-ratio: 1;
+  width: 70px;
+  background-color: rgb(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+}
+.topCircle {
+  left: -18%;
+  top: 15%;
+  z-index: 2;
+}
+.backCircle {
+  top: 8%;
+  left: -10%;
+  width: 50px;
+  background-color: rgba(253, 5, 5);
+  z-index: 1;
+}
+.bottomCircle {
+  position: absolute;
+  width: 50px;
+  backdrop-filter: blur(10px);
+  bottom: 0;
+  left: 80%;
+}
+.rect {
+  position: absolute;
+  width: 40px;
+  height: 45px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(253, 5, 5),
+    rgba(253, 5, 5),
+    rgba(251, 84, 0)
+  );
+  bottom: -6%;
+  right: -5%;
+}
